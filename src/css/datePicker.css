@@ -1,0 +1,49 @@
+.datepicker-control-section { 
+    max-width: 246px; 
+    margin: 30px auto; 
+    padding-top: 50px; 
+} 
+
+/* To remove the line in the input */ 
+.e-calendar-blue.e-input-group.e-control-wrapper.e-date-wrapper.e-input-focus::before, 
+.e-calendar-blue.e-input-group.e-control-wrapper.e-date-wrapper.e-input-focus::after, 
+.e-calendar-blue.e-input-group.e-control-wrapper.e-date-wrapper::before, 
+.e-calendar-blue.e-input-group.e-control-wrapper.e-date-wrapper::after, 
+.e-calendar-blue.e-input-group:not(.e-float-icon-left):not(.e-success):not(.e-warning):not(.e-error), 
+.e-calendar-blue.e-input-group.e-control-wrapper.e-input-focus:not(.e-float-icon-left):not(.e-success):not(.e-warning):not(.e-error), 
+.e-calendar-blue.e-input-group:not(.e-float-icon-left):not(.e-float-input)::before, 
+.e-calendar-blue.e-input-group:not(.e-float-icon-left):not(.e-float-input)::after { 
+    background: none; 
+    /* color:red; */
+    border: '1px solid black'; 
+    transition: none; 
+} 
+/* To change the selected day's and today's color*/ 
+
+/*yang ini buat selected day*/
+.e-calendar-blue .e-calendar .e-content td.e-selected span.e-day, 
+.e-calendar-blue .e-calendar .e-content td.e-today.e-selected span.e-day { 
+    background: orange; 
+    color: rgb(17, 16, 16); 
+} 
+
+/*yang ini buat today day*/
+.e-calendar-blue .e-calendar .e-content td.e-today span.e-day { 
+    color: orange; 
+    border: none; 
+    box-shadow: none; 
+} 
+/* To change the Today button and date icon color*/ 
+
+/*buat button today nya */
+.e-calendar-blue.e-date-wrapper 
+span.e-input-group-icon.e-date-icon.e-icons.e-active, 
+.e-calendar-blue .e-btn.e-flat.e-primary, 
+.e-calendar-blue .e-css.e-btn.e-flat.e-primary { 
+    color: orange; 
+} 
+
+    .e-calendar-blue .e-btn.e-flat.e-primary::hover { 
+        background: rgb(19 112 219 / 17%); 
+        color: orange; 
+    } 

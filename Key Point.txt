@@ -1,0 +1,18 @@
+Key point:
+
+list about position:
+HeadNav
+-Appjs (class containerAPP) = position relative
+-HeadNav.js AppBar = position absolute
+Maka Head nav akan keluar membentuk layer sendiri tetapi dengan parrent ruang lingkup containerAPP
+karena kompenent HeadNav merupakan children dari ContainerAPP
+
+git pull origin branchname --allow-unrelated-histories
+
+--Buat datepicker
+https://www.youtube.com/watch?v=B7LvXEwgTyw
+
+1. npm install @syncfusion/ej2-react-calendars
+2. @import url("https://cdn.syncfusion.com/ej2/material.css"); di app.css
+    *wajib import di app.css meski komponennya nanti tidak menggunakan app.css
+3. 
