@@ -1,0 +1,9 @@
+.bck {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    min-width: 100%;
+    min-height: 100%;
+    background: rgb(236,215,229);
+    background: linear-gradient(13deg, rgba(236,215,229,1) 19%, rgba(255,158,128,1) 63%);
+  }

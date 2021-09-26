@@ -11,8 +11,13 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
+//Redux
+import{useDispatch,useSelector} from 'react-redux';
+import {logoutUser} from '../../redux/actions/userActions';
+
 //Icons
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import LogoutIcon from '@material-ui/icons/ExitToApp';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import MenuIcon from '@material-ui/icons/Menu';
 
@@ -46,6 +51,34 @@ const useStyles = makeStyles(theme=>({
             height:60,
             width:210
         }
+    },
+    displayAfterLogin:{
+        display: 'flex',
+        alignItems:'center',
+        marginLeft: 'auto',
+        marginRight: '5.8%',
+        [theme.breakpoints.down('sm')]: {
+            marginRight: '5%'
+        },
+        '& .nameAndAccountStyle':{
+            color:'white',
+            marginRight:5
+        },
+        '& .logOutIcon':{
+            marginLeft:20, 
+            color: 'white', 
+            fontSize:30
+        },
+        '& .nameAndAccountStyleBM':{
+            color:'black',
+            marginRight:5
+        },
+        '& .logOutIconBM':{
+            marginLeft:20, 
+            color: 'black', 
+            fontSize:30
+        }
+
     },
     buttonDiv:{
         marginLeft: 'auto',
@@ -105,13 +138,22 @@ const useStyles = makeStyles(theme=>({
 
 
 const HeadNav = () => {
+    const {authenticated,loading,credentials:{first_name}} = useSelector(state=>state.user);
+    const dispatch = useDispatch();
+
     const classes= useStyles();
     const history = useHistory();
     const location = useLocation();
     console.log('Lokasi saat ini',location.pathname);
+    console.log('auth',authenticated);
+    // console.log('profile user', credentials)
 
     const imageClick = () => {
         history.push('/detail_hotel')
+    }
+
+    const logout = () => {
+        dispatch(logoutUser());
     }
 
     let logos= location.pathname === "/" || location.pathname === '/search_result' ? (
@@ -125,7 +167,22 @@ const HeadNav = () => {
 
     // Logic, jika auth=false, loading=false maka tampilkan buttontb dengan login dan signup button
     // jika auth=true, loading=false maka tampilkan username dan logout
-    let buttonTB= location.pathname === "/" ? (
+
+    let buttonTB= !loading ? (authenticated ? ( location.pathname === "/" ? (
+        <div className={classes.displayAfterLogin}>
+                <AccountCircle className="nameAndAccountStyle"/>
+                <p className="nameAndAccountStyle">{first_name}</p> 
+                <LogoutIcon className="logOutIcon" onClick={logout}/>
+        </div>
+    ): (
+        <div className={classes.displayAfterLogin}>
+                <AccountCircle className="nameAndAccountStyleBM"/>
+                <p className="nameAndAccountStyleBM">{first_name}</p> 
+                <LogoutIcon className="logOutIconBM" onClick={logout}/>
+        </div>
+    )
+        
+    ) : ( location.pathname === "/" ? (
         <div className={classes.buttonDiv}>
                     <Button className="signInButton" component={Link} to='/login'>
                         <AccountCircle style={{marginRight:5}}/> Log In
@@ -144,6 +201,8 @@ const HeadNav = () => {
                     </Button>
         </div>
     )
+        
+    )) : ( <p style={{fontSize:20, color:'white', marginRight: '5%', marginLeft:'auto'}}>...Loading</p> )
 
     return ( 
         <AppBar color="transparent" position="absolute" style={{boxShadow:'none'}} >

@@ -1,0 +1,42 @@
+
+  .buttonForm {
+    position: "relative";
+    width: 100%;
+    background: #e5e5e5;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+
+  .buttonForm:hover{
+    width: 100%;
+    background: #d41a1a;
+    border-radius: 6px;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 16px;
+  }
+
+  /* .cursorText{
+      cursor:pointer;
+  }
+
+  .cursorText:hover{
+      color:#d41a1a;
+  } */
+
+  /* .regHover{
+      color: rgba(4, 49, 173, 0.815);
+      cursor: pointer;
+  }
+
+  .regHover:hover{
+    color: #d41a1a;
+  } */
+
+  
