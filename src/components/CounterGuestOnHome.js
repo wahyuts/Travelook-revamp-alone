@@ -3,8 +3,6 @@ import MyIconButton from '../util/MyIconButton';
 
 //MaT UI Stuff
 import {makeStyles} from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 
 //Icon
@@ -12,9 +10,6 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
 const useStyles = makeStyles(theme=>({
-    contCounterGuest:{
-        // display:'flex'
-    },
     upDownButton:{
         width:10,
         height:10,
@@ -23,22 +18,29 @@ const useStyles = makeStyles(theme=>({
         width:20,
         height:20
     },
-    TextFieldClass:{
-        width:'100%'
+    contDivStyle:{
+        position:'absolute', 
+        left:'8%', 
+        width:'90%'
     },
-    formControl: {
+    styleInput: {
         width:'100%',
-        paddingTop:0,
-        paddingBottom:7
+        height:25,
+        paddingLeft: 10,
+        marginRight: 10,
+        border:'1px solid orangered',
+        borderRadius:5
       },
     labelStyle:{
         fontSize:14,
-        marginTop:8
+        marginTop:4,
+        marginLeft:15,
+        marginBottom:6
     }
     
 }))
 
-const CounterGuest = () => {
+const CounterGuestOnHome = () => {
     const classes = useStyles();
     const [count, setCount] = useState(0);
     const handleMinusOne = () => {
@@ -53,7 +55,7 @@ const CounterGuest = () => {
      }
 
      let onlyButtons = (
-         <div>
+         <div style={{display:'flex',position:'absolute',right:20,top:5}}>
             <MyIconButton tip="Add guest" onClick={handleAddOne} btnClassName={classes.upDownButton}>
                 <ArrowDropUpIcon className={classes.sizeIcon}/>
             </MyIconButton>
@@ -64,26 +66,22 @@ const CounterGuest = () => {
      )
 
     return ( 
-        <div className={classes.contCounterGuest}>
-            {/**FormControl hanya buat mengatur paddingTop inputLabel karena label tidak ditaruh didalem textField */}
+        
+        <div>
             <InputLabel className={classes.labelStyle} id="guest">Guest</InputLabel>
-            <FormControl className={classes.formControl}> 
-                {/* <InputLabel className={classes.labelStyle} id="guest">Guest</InputLabel> */}
-                <TextField
-                    id="guest"
+            <div className={classes.contDivStyle}>
+                <input
                     name="guest"
-                    type="text"
-                    labelid="guest"
                     value={`${count} Guest`}
-                    fullWidth // Fullwidth harus diaktifkan ketika mau mengaktifkan lebar
-                    className={classes.TextFieldClass}
-                    InputProps={{ // inputProps digunakan untuk memasukan elemen kedalam textField
-                        endAdornment: onlyButtons,
-                    }}
+                    style={{width:'14vw'}}
+                    className={classes.styleInput}
+                    readOnly
                 />
-            </FormControl>
+                    {onlyButtons}
+            </div>
+            
         </div>
      );
 }
  
-export default CounterGuest;
+export default CounterGuestOnHome;

@@ -11,6 +11,7 @@ const useStyles = makeStyles(theme=>({
     titleLi:{
         listStyle:'none', 
         fontSize:14, 
+        marginBottom:15,
         fontWeight:400,
         color:'grey'
     }

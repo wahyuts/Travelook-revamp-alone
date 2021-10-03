@@ -6,13 +6,15 @@ import CounterGuest from '../CounterGuest';
 //MaT UI Stuff
 import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
+// import CheckInPicker from '../CheckInPicker';
+// import CheckOutPicker from '../CheckOutPicker';
 
 const useStyles = makeStyles(theme=>({
     contCard:{
         position:'absolute',
         width:'85%',
         right:0,
-        backgroundColor:'rgba(255, 255, 255, 0.7); ',
+        backgroundColor:'rgba(255, 255, 255, 0.2); ',
         borderRadius:5,
         display:'flex',
         justifyContent:'center',

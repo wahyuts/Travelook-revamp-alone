@@ -32,17 +32,20 @@ const useStyles = makeStyles(theme =>({
         height:1700, 
         // height:'122vw',
         // backgroundColor:"red"
-        backgroundColor:theme.palette.common.whiteButtonBackground,
+        // backgroundColor:theme.palette.common.whiteButtonBackground,
+        backgroundColor:"transparant",
         [theme.breakpoints.down('sm')]: {
             height:1500, 
         },
     },
     colorGrid:{
-        backgroundColor:theme.palette.common.whiteButtonBackground
+        // backgroundColor:theme.palette.common.whiteButtonBackground
+        backgroundColor:"transparant",
         // backgroundColor:"brown",
     },
     colorGridPriceCard:{
-        backgroundColor:theme.palette.common.whiteButtonBackground,
+        backgroundColor:"transparant",
+        // backgroundColor:theme.palette.common.whiteButtonBackground,
         position:'relative'
     },
     titleHotel:{

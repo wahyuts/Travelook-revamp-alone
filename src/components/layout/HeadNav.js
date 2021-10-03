@@ -1,8 +1,8 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {Link, useHistory, useLocation} from 'react-router-dom';
 import Logo from '../../images/Logo.png';
 import LogoBM from '../../images/Travelook-Black-Font.png';
-import SearchBox from '../SearchBox';
+import SearchBoxOnNav from '../SearchBoxOnNav';
 import {Desktop,Tablet,Mobile,Default} from '../../util/ReactResponsiveHook';
 
 //MaT UI Stuff
@@ -156,12 +156,17 @@ const HeadNav = () => {
         dispatch(logoutUser());
     }
 
-    let logos= location.pathname === "/" || location.pathname === '/search_result' ? (
+    let logos= location.pathname === "/"  ? (
         <img src={Logo} alt="travelook logo" className={classes.image} onClick={imageClick}/>
     ) : (
         <div className={classes.logoAndSearchBox}>
             <img src={LogoBM} alt="travelook logo" className={classes.imageBM} onClick={imageClick}/>
-            <SearchBox/>
+            {location.pathname === '/detail_hotel' ? (
+                <SearchBoxOnNav/>
+            ):(
+                null
+            )
+            }
         </div>
     )
 

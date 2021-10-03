@@ -1,6 +1,14 @@
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
-import {SET_USER, SET_ERRORS, CLEAR_ERRORS, LOADING_UI, SET_AUTHENTICATED, SET_UNAUTHENTICATED, LOADING_USER, MARK_NOTIFICATIONS_READ} from '../type';
+import {SET_USER, 
+        SET_ERRORS, 
+        CLEAR_ERRORS, 
+        LOADING_UI, 
+        SET_AUTHENTICATED, 
+        SET_UNAUTHENTICATED, 
+        LOADING_USER, 
+        MARK_NOTIFICATIONS_READ,
+        RESET_LOCATION} from '../type';
 
 
 // Fungsi User ketika login
@@ -49,6 +57,9 @@ export const logoutUser = () => (dispatch) => {
     localStorage.removeItem('FBIdToken');
     delete axios.defaults.headers.common['Authorization'];
     dispatch({ type: SET_UNAUTHENTICATED});
+    dispatch({
+        type: RESET_LOCATION
+    });
 }
 
 //Fungsi mau dapetin data2 user (biasanya buat user profile atau mau cantumin nama di headnav)

@@ -1,5 +1,5 @@
 import React from 'react';
-import homeBanner from '../../images/homepage-banner.png';
+import homeBanner from '../../images/LogoSearchPage.png';
 
 //MuI Stuff
 import { makeStyles } from '@material-ui/core/styles';
@@ -10,8 +10,8 @@ const useStyles = makeStyles(theme=>({
         //mengatur posisi, lebar, tinggi, kotak hitam
         position: 'relative',
         width: '100%',
-        height: '32vw',
-        backgroundColor: theme.palette.primary.main,
+        height: '21vw',
+        backgroundColor: 'transparant',
 
         //mengatur flex dan padding terhadap gambar
         paddingTop: 130,
@@ -25,8 +25,8 @@ const useStyles = makeStyles(theme=>({
     },
     imgBanner:{
         position: 'absolute',
-        width: '87vw',
-        height: '28vw',
+        width: '50vw',
+        height: '5vw',
         [theme.breakpoints.down('sm')]: {
             height: '32vw',
         }
@@ -55,15 +55,13 @@ const useStyles = makeStyles(theme=>({
     }
 }))
 
-const HomeBanner = () => {
+const ResultSearchBanner = () => {
 
     const classes = useStyles();
     return ( 
         <div>
             <div className={classes.contBanner}>
                 <img src={homeBanner} alt="homepage banner" className={classes.imgBanner}/>
-                <h1 className={classes.h1Style}>Where's Next ?</h1>
-                <p className={classes.slogan}>Connecting you to new experience</p>
                 <SearchBox/>
                 {/**di sini isi komponen search box nya */}
             </div>
@@ -71,4 +69,4 @@ const HomeBanner = () => {
      );
 }
  
-export default HomeBanner;
+export default ResultSearchBanner;

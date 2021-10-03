@@ -10,10 +10,9 @@ const useStyles = makeStyles(theme=>({
     contHomeContent:{
         display:'flex',
         flexDirection:'column',
-        justifyContent:'center',
-        // alignItems:'center',
+        justifyContent:'flex-start',
         width:'88%',
-        height: '80vw', // yang harus dirubah pas media querry
+        height: '330vw', // yang harus dirubah pas media querry
         marginLeft:'6%',
         marginRight:'6%',
         marginBottom:20,
@@ -21,13 +20,13 @@ const useStyles = makeStyles(theme=>({
     },
     contWithImageAndText:{
         display:'flex',
+        flexDirection:'column',
         // backgroundColor:'orange',
         width:'100%',
-        marginBottom:50
+        marginBottom:30
     },
     contJustTextLeft:{
-        width:'40%',
-        height:'100%',
+        width:'90%',
         paddingRight:30,
         // backgroundColor:'brown',
         display:'flex', 
@@ -44,7 +43,8 @@ const useStyles = makeStyles(theme=>({
         justifyContent:'center'
     },
     textAtribute:{
-        marginBottom:0
+        marginBottom:0,
+        fontSize:18
     },
     image:{
         width: '100%',
@@ -55,17 +55,17 @@ const useStyles = makeStyles(theme=>({
         height:'100%'
     },
     paragraph:{
-        fontSize:16
+        fontSize:14
     },
     textTravelook:{
         marginLeft:'6%',
         marginTop:"6%",
-        fontSize:20
+        fontSize:18
     }
 
 }))
 
-const HomeContent = () => {
+const HomeContentMobile = () => {
     const classes = useStyles();
     return ( 
         <div>
@@ -75,7 +75,7 @@ const HomeContent = () => {
                 <div className={classes.contWithImageAndText}>
                     <div className={classes.contJustTextLeft}>
                         <h1 className={classes.textAtribute}>
-                            It’s easy to book <br />
+                            It’s easy to book 
                             house for rent
                         </h1>
                         <p className={classes.paragraph}>
@@ -89,12 +89,9 @@ const HomeContent = () => {
                 </div>
 
                 <div className={classes.contWithImageAndText}>
-                    <div className={classes.contDivImage}>
-                        <img src={Pic2} alt="Uniq Home Desain" className={classes.image}/>
-                    </div>
-                    <div className={classes.contJustTextRight}>
+                    <div className={classes.contJustTextLeft}>
                         <h1 className={classes.textAtribute}>
-                            Unique <br />
+                            Unique 
                             home design
                         </h1>
                         <p className={classes.paragraph}>
@@ -102,12 +99,15 @@ const HomeContent = () => {
                             stay in a private room for rent or the entire space for your own use.
                         </p>
                     </div>
+                    <div className={classes.contDivImage}>
+                        <img src={Pic2} alt="Uniq Home Desain" className={classes.image}/>
+                    </div>
                 </div>
 
                 <div className={classes.contWithImageAndText}>
                     <div className={classes.contJustTextLeft}>
                         <h1 className={classes.textAtribute}>
-                            Host are wonderful. <br />
+                            Host are wonderful. 
                             Verified for quality.
                         </h1>
                         <p className={classes.paragraph}>
@@ -119,29 +119,10 @@ const HomeContent = () => {
                         <img src={Pic1} alt="Booking Process" className={classes.image}/>
                     </div>
                 </div>
-
             </div>
-
-            {/* <div className={classes.contHomeContent}>
-                <div className={classes.contWithImageAndText}>
-                    <div className={classes.contDivImage}>
-                        <img src={Pic2} alt="Booking Process" className={classes.image}/>
-                    </div>
-                    <div className={classes.contJustTextRight}>
-                        <h1 className={classes.textAtribute}>
-                            Unique <br />
-                            home design
-                        </h1>
-                        <p className={classes.paragraph}>
-                            Each Travelook home is unique, thoughtfully designed, and equipped with a standard set of amenities – whether you 
-                            stay in a private room for rent or the entire space for your own use.
-                        </p>
-                    </div>
-                </div>
-            </div> */}
 
         </div>
      );
 }
  
-export default HomeContent;
+export default HomeContentMobile;

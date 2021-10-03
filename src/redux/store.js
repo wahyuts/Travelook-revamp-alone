@@ -4,6 +4,10 @@ import userReducer from './reducers/userReducer';
 import dataReducer from './reducers/dataReducer';
 import UIReducer from './reducers/UIReducer';
 
+//Redux Persist
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 //State dasar /base pada redux (bentuknya object)
 const initialState = {};
 
@@ -17,14 +21,28 @@ const reducers = combineReducers({
     UI: UIReducer
 });
 
-//buat store (terdiri dari combineReducer, initialState, compose)
+
+// store and combine with redux persist
+//(NOTED: matikan or comment bagian yang terhubung dengan redux persist jika tidak mau menggunakan redux persisit)
+
+const persistConfig = { // persistConfig bagian dari redux persist
+    key: "root",
+    storage
+};
+
+const persistedReducer = persistReducer(persistConfig, reducers); //bagian redux persist
+
 const store = createStore(
-    reducers, 
-    initialState, 
+    persistedReducer, // Bagian redux persist
+    initialState,
     compose( // compose berfungsi untuk menerapkan middleware kedalam store dan extension redux_devtool
         applyMiddleware(...middleware), 
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )
-)
+);
 
+const persistor = persistStore(store); // bagian redux persist
+
+
+// export { persistor, store }
 export default store

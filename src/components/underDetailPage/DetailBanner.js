@@ -14,7 +14,8 @@ const useStyles = makeStyles(theme=>({
         position: 'relative',
         width: '100%',
         height: '32vw',
-        backgroundColor: theme.palette.common.whiteButtonBackground,
+        // backgroundColor: theme.palette.common.whiteButtonBackground,
+        backgroundColor:'transparant',
         // backgroundColor: theme.palette.common.black,
 
         //mengatur flex dan padding terhadap gambar

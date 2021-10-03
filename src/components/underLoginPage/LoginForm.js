@@ -129,6 +129,7 @@ const LoginForm = (props) => {
                 password: ""
             },
             validationSchema: Yup.object({
+                
                 email: Yup.string()
                     .email("Invalid email format")
                     .required("Required!"),
@@ -169,6 +170,7 @@ const LoginForm = (props) => {
                             <p className={classes.errorMsg}>{formik.errors.email}</p>
                         )}
                 </div>
+                
                 <div className={classes.divForm}>
                     <label className={classes.labelForm}>Password</label>
                     <input 

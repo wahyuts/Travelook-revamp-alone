@@ -21,6 +21,7 @@ import SignUpPage from './pages/SignUpPage';
 import {Provider} from 'react-redux';  
 import store from './redux/store';
 import {logoutUser, getUserData} from './redux/actions/userActions';
+import {getAllDataHotel} from './redux/actions/dataActions';
 import {SET_AUTHENTICATED} from './redux/type';
 
 const theme = createTheme(themeFile);
@@ -33,7 +34,12 @@ const App = () => {
     history.push('/login');
   }
 
+  // Fungsi use effect di app.js ini gunanya untuk mencegah supaya ketika di refresh data pada web sekaligus redux tidak hilang
+  // logic nya adalah kalo kita nge get di app yang menaungi semuanya maka misal web di refresh
+  // pasti yang ke load pertama kali adalah app bukan ? bahkan root home page pun masih kalah dari app
+  
   useEffect(()=>{
+    store.dispatch(getAllDataHotel())
     if(token){
       const decodedToken = jwtDecode(token);
       console.log('decode token',decodedToken);
@@ -54,7 +60,7 @@ const App = () => {
         <div>
             <Router>
                 <div className="containerAPP">
-                    <Route exact path={["/", "/detail_hotel"]} component={HeadNav}/>
+                    <Route exact path={["/", "/detail_hotel", "/search_result"]} component={HeadNav}/>
                     <Switch>
                         <Route exact path="/" component={HomePage}/>
                         <Route exact path="/detail_hotel" component={DetailPage}/> {/**path hanya untuk sementara */}
@@ -62,7 +68,7 @@ const App = () => {
                         <Route exact path='/login' component={LoginPage}/>
                         <Route exact path='/signup' component={SignUpPage}/>
                     </Switch>
-                    <Route exact path={["/","/detail_hotel"]} component={Footer}/>
+                    <Route exact path={["/","/detail_hotel","/search_result"]} component={Footer}/>
                 </div>
             </Router>
         </div>

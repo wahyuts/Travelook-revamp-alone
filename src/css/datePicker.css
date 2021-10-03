@@ -1,7 +1,7 @@
 .datepicker-control-section { 
     max-width: 246px; 
     margin: 30px auto; 
-    padding-top: 50px; 
+    padding-top: 50px;
 } 
 
 /* To remove the line in the input */ 
@@ -18,6 +18,7 @@
     border: '1px solid black'; 
     transition: none; 
 } 
+
 /* To change the selected day's and today's color*/ 
 
 /*yang ini buat selected day*/
