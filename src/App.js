@@ -11,7 +11,7 @@ import jwtDecode from 'jwt-decode';
 import themeFile from './util/theme';
 import './App.css';
 
-//Mui Stuff
+//Mui Stuffxxx
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import { createTheme } from '@material-ui/core/styles'
 import LoginPage from './pages/LoginPage';
