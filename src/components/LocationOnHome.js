@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import MyIconButton from '../util/MyIconButton';
-import {setLocationHotel,setUniqArrayLocation} from '../redux/actions/dataActions';
+import {useLocation,useHistory} from 'react-router-dom';
+import {setLocationHotel,getHotelByLocation,setUniqArrayLocation} from '../redux/actions/dataActions';
 
 //MaT UI Stuff
 import {makeStyles} from '@material-ui/core/styles';
@@ -75,6 +76,8 @@ const useStyles = makeStyles(theme=>({
 const LocationOnHome = () => {
     const dispatch = useDispatch();
     const classes = useStyles();
+    const history = useHistory();
+    const location = useLocation();
 
     // const [selected, setSelected] = useState("Choose Destination");
     const [isActive, setIsActive] = useState(false);
@@ -110,7 +113,14 @@ const LocationOnHome = () => {
             {locationHotel.map((locHotel) => (
                 <div
                     onClick={(e) => {
-                        dispatch(setLocationHotel(locHotel))
+                        if(location.pathname === "/" ){
+                            dispatch(setLocationHotel(locHotel))
+                        }else{
+                            dispatch(setLocationHotel(locHotel))
+                            dispatch(getHotelByLocation(locHotel,history))
+                        }
+
+                        // dispatch(setLocationHotel(locHotel))
                         setIsActive(false);
                     }}
                     className="dropdown-item"
@@ -136,9 +146,9 @@ const LocationOnHome = () => {
                 </div>
                 <input
                     name="guest"
-                    value={locationEachHotel}
                     // value={selected}
                     onChange={handleChange}
+                    value={locationEachHotel}
                     style={{width:'13vw',marginRight:18}}
                     className={classes.styleInput}
                     readOnly
