@@ -5,7 +5,7 @@ const Scroll = (props) => {  //* props ini parameter const scroll,..yang mengacu
                             // tapi karena komponen Scroll ini mempunyai penutup jadinya props ini akan mengacu kepada anaknya yaitu semua yang berada didalam <Scrool> (ini anaknya) </Scrool>
                             // penjelasan soal property atau props lebih lengkap dibawah ada
     return (
-        <div style = {{ overflow: 'scroll', overflowX: "hidden", width:'95%',height:'92%'}}>  {/**penulisan css pada jsx secara inline yaitu style {{}} */}
+        <div style = {{ overflow: 'scroll', overflowX: "hidden", width:'95%',height:'100%'}}>  {/**penulisan css pada jsx secara inline yaitu style {{}} */}
             {props.children}  {/* children ini maksudnya adalah komponen yang berada didalam komponen,...lebih lengkapnya dibawah ada penjelasannya */}
         </div>
     )

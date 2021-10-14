@@ -37,8 +37,8 @@ const useStyles = makeStyles(theme=>({
         // height:1700, 
         // height:'122vw',
         // backgroundColor:"red"
-        backgroundColor:'black',
-        // backgroundColor:"transparant",
+        // backgroundColor:'black',
+        backgroundColor:"transparant",
         [theme.breakpoints.down('sm')]: {
             height:1500, 
         },
@@ -47,13 +47,14 @@ const useStyles = makeStyles(theme=>({
         // backgroundColor:theme.palette.common.whiteButtonBackground
         // backgroundColor:"transparant",
         position:'relative',
-        backgroundColor:"blue",
+        backgroundColor:"transparant",
+        // backgroundColor:"blue",
     },
     gridFilter:{
         position:'relative',
         display:'flex',
-        // backgroundColor:"transparant",
-        backgroundColor:"brown",
+        backgroundColor:"transparant",
+        // backgroundColor:"brown",
     }
 }));
 

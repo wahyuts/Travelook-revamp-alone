@@ -149,7 +149,7 @@ const HeadNav = () => {
     // console.log('profile user', credentials)
 
     const imageClick = () => {
-        history.push('/detail_hotel')
+        history.push('/')
     }
 
     const logout = () => {

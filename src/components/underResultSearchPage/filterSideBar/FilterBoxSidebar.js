@@ -28,7 +28,8 @@ const useStyles = makeStyles(theme=>({
     // },
     // height: 700,
     borderRadius: 16,
-    backgroundColor:'#FFFFFF'
+    backgroundColor:'rgba(255, 255, 255, 0.2); ',
+    // backgroundColor:'#FFFFFF'
   },
   fontSizeFilterbar:{
     fontSize:20,
