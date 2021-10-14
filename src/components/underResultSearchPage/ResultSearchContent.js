@@ -65,7 +65,7 @@ const ResultSearchContent = () => {
 
     const items = [
         { name: 'filter', 
-          label: 'Filter',
+          label: 'Filter Travelook',
         },
     
         { name: 'price', 
