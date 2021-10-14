@@ -1,15 +1,18 @@
 import React from 'react';
 import PriceRange from '../underResultSearchPage/filterSideBar/PriceRange';
 import RatingStar from '../underResultSearchPage/filterSideBar/RatingStar';
+import FilterBoxSidebar from './filterSideBar/FilterBoxSidebar';
+
  
 //MaT UI
 import Grid from '@material-ui/core/Grid';
 import {makeStyles} from '@material-ui/core/styles';
-import FilterBoxSidebar from './filterSideBar/FilterBoxSidebar';
-import insideFilterBox from './filterSideBar/insideFilterBox';
 
 //Redux
 import{useSelector} from 'react-redux';
+import StateLocation from './filterSideBar/StateLocation';
+import CardHotel from './CardHotel';
+import NavOnCardHotel from './NavOnCardHotel';
 
 const useStyles = makeStyles(theme=>({
     contGlobal:{
@@ -18,7 +21,7 @@ const useStyles = makeStyles(theme=>({
         // flexDirection:'column',
         justifyContent:'center', 
         alignItems:'flex-start',
-        height:1700,
+        height:800,
         [theme.breakpoints.down('sm')]: {
             height:2000,
             paddingBottom:'40vw' // untuk ngatur jarak antara Detail content dengan footer
@@ -31,7 +34,7 @@ const useStyles = makeStyles(theme=>({
     contFullGrid:{
 
         // RUBAH NILAI HEIGHT JADI > 1700 UNTUK CODE RESPONSIVE NAMPILIN CARD PRICE DI MOBILE
-        height:1700, 
+        // height:1700, 
         // height:'122vw',
         // backgroundColor:"red"
         backgroundColor:'black',
@@ -43,6 +46,7 @@ const useStyles = makeStyles(theme=>({
     gridListHotel:{
         // backgroundColor:theme.palette.common.whiteButtonBackground
         // backgroundColor:"transparant",
+        position:'relative',
         backgroundColor:"blue",
     },
     gridFilter:{
@@ -75,7 +79,7 @@ const ResultSearchContent = () => {
         //   label: `Location on`,
           label: `Location on ${locationEachHotel}`,
           items: [
-                {name:'starRating', label:<RatingStar/>},
+                {name:'starRating', label:<StateLocation/>},
             ] 
         },
     
@@ -98,7 +102,8 @@ const ResultSearchContent = () => {
 
                     <Grid item sm={8} xs={12} className={classes.gridListHotel} >
                     {/* <insideFilterBox/> */}
-                        List Hotel nya
+                        <NavOnCardHotel/>
+                        <CardHotel/>
                     </Grid>
                 </Grid>  
             </section>

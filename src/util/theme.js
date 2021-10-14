@@ -28,6 +28,7 @@ export default {
           md: 767,
           lg: 1024,
           xl: 1280,
+          // xxl: 1360,
           fullHD: 1900
         },
       },

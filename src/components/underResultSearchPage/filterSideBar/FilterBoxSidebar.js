@@ -19,24 +19,32 @@ const useStyles = makeStyles(theme=>({
     marginBottom: 48,
     marginRight: 20,
     width:'100%',
-    // height: 564,
+    // height:'53vw',
+    // [theme.breakpoints.down('xl')]: {
+    //   height:'43vw',
+    // },
+    // [theme.breakpoints.up('fullHD')]: {
+    //   height:'37vw',
+    // },
+    // height: 700,
     borderRadius: 16,
     backgroundColor:'#FFFFFF'
   },
   fontSizeFilterbar:{
-    fontSize:20
+    fontSize:20,
   },
   sidebarItemContent:{
-      width:'100%'
+      width:'100%',
   },
-  sidebarItem:{
-    borderBottom: '1px solid #EFEFF4'
-  },
+  // sidebarItem:{
+  //   borderBottom: '1px solid #EFEFF4'
+  // },
   sidebarItemText:{
     width:'95%',
     paddingLeft:'5%',
     paddingtop:'2%',
-    paddingBottom:'2%'
+    paddingBottom:'2%',
+    marginTop:'2%',
   },
   
 }))

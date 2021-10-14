@@ -2,7 +2,7 @@ import {LOADING_DATA,GET_ALL_DATA_HOTEL,SET_LOCATION_EACH_HOTEL,GET_HOTEL_BY_LOC
 
 const initialState = {
     dataHotels: [],
-    dataHotelByOneCityLoaction:[],
+    dataHotelByOneCityLocation:[],
     textInSearchBox: '',
     uniqArrayLocation: [],
     locationEachHotel:'Choose Destination',
@@ -30,7 +30,7 @@ export default function (state=initialState, action) {
         case GET_HOTEL_BY_LOCATION:
             return{
                 ...state,
-                dataHotelByOneCityLoaction: action.payload
+                dataHotelByOneCityLocation: action.payload
             }
         case RESET_LOCATION:
             return{

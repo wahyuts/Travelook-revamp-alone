@@ -15,9 +15,9 @@ const useStyles = makeStyles(theme=>({
 
 const SearchResultPage = () => {
     const classes = useStyles();
-    const {dataHotelByOneCityLoaction} = useSelector (state => state.data);
+    const {dataHotelByOneCityLocation} = useSelector (state => state.data);
     const [hotelBasedOnCityLocation,setHotelBasedOnCityLocation] = useState([])
-    console.log('hotel by city location',dataHotelByOneCityLoaction )
+    console.log('hotel by city location',dataHotelByOneCityLocation )
 
     // useEffect(()=>{
         // setHotelBasedOnCityLocation(
